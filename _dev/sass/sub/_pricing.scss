@@ -1,0 +1,124 @@
+.pricing{
+    &-featured{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 50px;
+        padding-top: 25px;
+        margin-top: 25px;
+        margin-bottom: 50px;
+        @media(max-width: 991px){
+            grid-template-columns: 1fr;
+        }
+        &-item{
+            position: relative;
+            box-shadow: 0 15px 25px rgba(0,0,0,.125);
+            &-price{
+                color: $clr-secondary;
+                margin-bottom: 10px;
+            }
+            & > header{
+                background: $clr-secondary;
+                color: #fff;
+                text-align: center;
+                padding: 24px 30px;
+                & > h2{
+                    color: currentColor;
+                    font-size: 24px;
+                    margin-bottom: .25em;
+                    font-weight: bold;
+                }
+                & > span{
+                    font-size: 16px;
+                }
+            }
+            & > main{
+                & > ul{
+                    margin-top: 16px;
+                    padding-bottom: 16px;
+                    border-bottom: 1px solid #ddd;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    & > li{
+                        width: fit-content;
+                        padding-bottom: 7.5px;
+                        line-height: 1.1em;
+                        &:last-child{
+                            padding-bottom: 0;
+                        }
+                    }
+                }
+            }
+            & > footer{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 24px 30px;
+            }
+            &.popular{
+                &::before{
+                    content: "Najbardziej popularny";
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    transform: translateY(-100%);
+                    padding: 5px;
+                    background: $clr-primary;
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    text-align: center;
+                }
+            }
+        }
+        &-item.popular &-item{
+            &-header{
+                color: $clr-primary;
+            }
+        }
+    }
+    &-addons{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 50px;
+        @media(max-width: 991px){
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        & .course-addons-item{
+            background: #fef8cd;
+            border-color: #fef8cd;
+            box-shadow: 0 10px 15px rgba(0,0,0,.1);
+            &-title{
+                font-size: 22px;
+            }
+            &-price{
+                    font-size: 22px;
+            }
+            &:hover{
+                box-shadow: 0 15px 25px rgba(0,0,0,.125);
+                border-color: $clr-primary;
+                background: white;
+            }
+        }
+    }
+    &-credit{
+        margin-bottom: 50px;
+        display: flex;
+        background: $clr-primary;
+        font-size: 16px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px 30px;
+        strong{
+            font-size: 24px;
+        }
+        a{
+            text-decoration: underline;
+        }
+    }
+}

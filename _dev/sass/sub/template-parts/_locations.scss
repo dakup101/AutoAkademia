@@ -1,0 +1,33 @@
+.locations {
+  padding-top: 5rem;
+  padding-bottom: 7rem;
+  isolation: isolate;
+
+  .locations__location {
+
+    &-district {
+      font-size: 2.4rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    &-street {
+      font-size: 2.4rem;
+      margin-bottom: 2rem;
+    }
+    &-map {
+      position: relative;
+      margin-top: 2rem;
+      padding-bottom: 70%;
+      width: 100%;
+      margin-bottom: 4rem;
+
+      & > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

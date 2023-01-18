@@ -1,0 +1,180 @@
+table.cart{
+    font-size: 16px !important;
+    border: none !important;
+    margin-top: 50px !important;
+    thead{
+        th{
+            font-weight: 300 !important;
+        }
+    }
+    td{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        &.product-price, &.product-subtotal{
+            font-weight: bold;
+        }
+    }
+    th{
+        font-weight: 400;
+        font-size: 12px;
+    }
+    .product-thumbnail{
+        width: 100px;
+        img{
+            width: 100px;
+        }
+    }
+    .product-name{
+        padding-left: 20px;
+        a{
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        span{
+            font-size: 14px;
+        }
+    }
+    .product-remove{
+        width: 40px;
+        @media(max-width: 991px){
+            display: none !important;
+        }
+        a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            img{
+                width: 24px
+            }
+            transition: all .2s ease-in-out;
+            &:hover{
+                background: #eee;
+            }
+        }
+    }
+
+}
+.cart{
+    &-page{
+        #breadcrumbs{
+            position: relative;
+            top: 0;
+            left: 0;
+            margin-bottom: 25px;
+        }
+    }
+    &-buttons{
+        display: flex;
+        justify-content: space-between;
+        margin: 50px 0;
+        @media(max-width: 991px){
+            margin-top: 3rem;
+            flex-direction: column;
+            align-items: center;
+            & .btn--outline{
+                border: 0;
+                padding: 0;
+                text-decoration: underline;
+                margin-bottom: 2rem;
+                &:hover{
+                    background: none;
+                    color: #333;
+                }
+            }
+        }
+        .btn{
+            min-width: 220px;
+        }
+    }
+    &-actions{
+        font-size: 16px;
+        .coupon{
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            input{
+                border: none;
+                border-bottom: 1px solid #aaa;
+                padding: 5px;
+            }
+            .btn{
+                max-width: 250px;
+                width: 100%;
+            }
+            .disabled{
+                pointer-events: all !important;
+                cursor: pointer !important;
+            }
+            .col-md-4{
+                @media(max-width: 991px){
+                    text-align: center;
+                }
+            }
+        }
+        .row{
+            align-items: center;
+        }
+    }
+    &-info{
+        display: flex;
+        align-items: center;
+        gap: .5em;
+        color: #aaa;
+        @media(max-width: 991px){
+            margin-bottom: 1rem;
+        }
+        img{
+            height: 1.7em;
+        }
+        span{
+            @media(max-width: 991px){
+                display: flex;
+                flex-direction: column;
+            }
+        }
+        a{
+            text-decoration: underline;
+            transition: all .2s ease-in-out;
+            &:hover{
+                color: $clr-primary;
+            }
+        }
+    }  
+    &_totals{
+        width: 100% !important;
+        text-align: right;
+        @media(max-width: 991px){
+            margin-top: 35px;
+        }
+        h2{
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 10px;
+            span{
+                color: #333;
+                font-weight: bold;
+            }
+        }
+    }
+}
+.qty{
+    appearance: none;
+    -moz-appearance: textfield;
+    height: 35px;
+    width: 35px !important;
+    &-minus, &-plus{
+        background: none;
+        width: 20px;
+        height: 35px;
+        border: none;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    &-minus:hover, &-plus:hover{
+        background: #eee;
+        cursor: pointer;
+    }
+}

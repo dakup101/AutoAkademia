@@ -1,0 +1,82 @@
+@import "sub/fonts";
+@import "sub/mixins";
+@import "sub/variables";
+@import "sub/normalize";
+@import "sub/layout";
+@import "sub/universal";
+@import "sub/header";
+@import "sub/footer";
+
+// Template Parts
+@import 'sub/template-parts/banner';
+@import 'sub/template-parts/worth-signing';
+@import 'sub/template-parts/contact-form';
+@import 'sub/template-parts/map';
+@import 'sub/template-parts/about';
+@import 'sub/template-parts/cta';
+@import 'sub/template-parts/opinions';
+@import 'sub/template-parts/guides';
+@import 'sub/template-parts/contact';
+@import 'sub/template-parts/locations';
+@import 'sub/template-parts/guide';
+@import 'sub/terms_module';
+
+//COMPONENTS
+@import 'sub/components/rating';
+//PLUGINS
+@import "sub/slick/slick.scss";
+
+// Cookies
+@import "sub/cookies/divante.cookies";
+
+// WC
+@import "sub/course";
+@import "sub/cart";
+@import "sub/checkout";
+@import "sub/thankyou";
+@import "sub/course-archive";
+@import "sub/pricing";
+@import "sub/woocommerce_notifications";
+
+.hidden{
+    display: none !important;
+}
+
+.reverse-on-mobile{
+@media(max-width: 991px){
+    flex-direction: column-reverse;
+}
+}
+
+.text{
+    font-size: 16px;
+    line-height: 150%;
+    ul{
+        list-style: none;
+        padding: 0;
+        li{
+            position: relative;
+            padding-left: 2em;
+            margin-bottom: .5em;
+            &::before{
+                content: '';
+                position: absolute;
+                background: $clr-primary;
+                width: 1em;
+                height: 1em;
+                top: 0;
+                left: 0;
+            }
+            &::after{
+                content: '';
+                background-image: url('http://autoakademia.test/wp-content/themes/AutoAkademia/dist/images/check-bold.svg');
+                background-size: contain;
+                width: .9em;
+                height: .9em;
+                position: absolute;
+                top: -.15em;
+                left: .35em;
+            }
+        }
+    }
+}

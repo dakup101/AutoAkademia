@@ -1,0 +1,32 @@
+.woocommerce{
+    &-message{
+        border-color: $clr-primary;
+        font-size: 14px;
+        background: white;
+        box-shadow: 0px 5px 10px rgba(0,0,0,.05);
+        &::before{
+            color: $clr-primary;
+        }
+    }
+    &-error{
+        font-size: 14px;
+        background: white;
+        box-shadow: 0px 5px 10px rgba(0,0,0,.05);
+    }
+    &-input-wrapper{
+        display: block;
+    }
+    &-invalid{
+        &::after{
+            content: "Sprawdź poprawność danych" !important;
+            margin-top: 5px;
+            color: red;
+            font-size: 12px;
+        }
+        &-required-field{
+            &::after{
+                content: "Pole jest wymagane" !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,369 @@
+.main {
+  overflow: hidden;
+}
+
+/* The emerging W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $clr-primary $clr-secondary;
+}
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 7px;
+}
+*::-webkit-scrollbar-button,
+*::-webkit-scrollbar-corner,
+*::-webkit-resizer {
+  display: none;
+}
+*::-webkit-scrollbar-track {
+  background: $clr-secondary;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: $clr-primary;
+  border: 3px solid $clr-primary;
+}
+
+.btn {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  width: max-content;
+  padding: 1.4em 2.2em;
+  border: 2px solid transparent;
+  border-radius: 50vw;
+  transition: all $transition-regular;
+  cursor: pointer;
+  &--primary {
+    background-color: $clr-primary;
+    border-color: $clr-primary;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+      background-color: $clr-secondary;
+      border-color: $clr-secondary;
+    }
+  }
+
+  &--secondary {
+    color: #fff;
+    background-color: $clr-secondary;
+    border-color: $clr-secondary;
+
+    &:hover,
+    &:focus {
+      color: $clr-secondary;
+      background-color: $clr-primary;
+      border-color: $clr-primary;
+    }
+  }
+
+  &--outline{
+    background: transparent;
+    color: $clr-secondary;
+    border-color: $clr-secondary;
+
+    &:hover,
+    &:focus{
+      color: #fff;
+      background-color: $clr-secondary;
+      border-color: $clr-secondary;
+    }
+  }
+
+  &--tag {
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-transform: none;
+    background-color: #eef1ed;
+    &:focus,
+    &:hover {
+      background-color: $clr-primary;
+    }
+  }
+  &--center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.link {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-decoration: underline;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  width: fit-content;
+  transition: color $transition-regular;
+
+  &--primary {
+    color: $clr-secondary;
+    &:hover {
+      color: $clr-primary;
+    }
+  }
+
+  &--center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.cut-corner {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    @include pseudo;
+    top: -5px;
+    left: 100%;
+    height: 100px;
+    width: 150px;
+    background-color: #fff;
+    transform: skew(40deg);
+    transform-origin: bottom left;
+  }
+}
+
+.breadcrumbs {
+  position: absolute;
+  bottom: 20px;
+  left: 40px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  transition: color $transition-regular;
+  a {
+    color: $clr-primary;
+    &:hover,
+    &:focus {
+      color: $clr-secondary;
+    }
+  }
+}
+
+// Typography
+.heading-primary,
+.heading-primary h1,
+.heading-primary h2,
+.heading-primary h3 {
+  @include scale-fontsize(6rem);
+  font-weight: 400;
+  margin-bottom: 2rem;
+
+  em {
+    font-style: normal;
+    color: $clr-primary;
+  }
+}
+
+.heading-secondary,
+.heading-secondary h2,
+.heading-secondary h3,
+.heading-secondary h4 {
+  @include scale-fontsize(3.4rem);
+  font-weight: 400;
+  margin-bottom: 0.8em;
+}
+
+.subheading,
+.subheading p {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  margin-bottom: 3.6rem;
+}
+
+.section-heading {
+  h2,
+  h3 {
+    @include scale-fontsize(4.4rem);
+    font-weight: 600;
+    margin-bottom: 0.8em;
+
+    span {
+      font-size: 1.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      display: block;
+    }
+  }
+}
+
+.text-lead {
+  p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 2rem;
+  }
+
+  ul {
+    padding: 0;
+  }
+  li {
+    position: relative;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    padding-left: 4rem;
+    margin-bottom: 2rem;
+    list-style: none;
+
+    &::before {
+      @include pseudo;
+      top: 0.6em;
+      left: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: $clr-secondary;
+      transform: translateY(-50%);
+    }
+    &::after {
+      @include pseudo;
+      top: 0.6em;
+      left: 15px;
+      width: 12px;
+      height: 7px;
+      border-bottom: 2px solid $clr-primary;
+      border-left: 2px solid $clr-primary;
+      transform: translate(-45%, -70%) rotate(-45deg);
+    }
+  }
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-center,
+.text-center p {
+  text-align: center;
+}
+
+// margins and paddings
+.mb-3 {
+  margin-bottom: 3rem;
+}
+.mt-3 {
+  margin-top: 3rem;
+}
+.mb-4 {
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .mb-sm-0 {
+    margin-bottom: 0;
+  }
+}
+
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: $clr-primary;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+.custom-chkbox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  input[type="checkbox"]{
+    display: none;
+    & + span{
+      display: block;
+      width: 25px;
+      height: 25px;
+      border: 1px solid #333;
+      margin-right: 16px;
+      position: relative;
+      opacity: .8;
+      transition: all .2s ease-in-out;
+    }
+    &:checked + span{
+      background: $clr-primary;
+    }
+  }
+}
+
+.wc-title{
+  font-size: 44px;
+  color: $clr-primary;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.woocommerce-breadcrumb{
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+.title-speed{
+  font-size: inherit !important;
+  display: flex;
+  align-items: center;
+  & > span{
+    font-size: inherit !important;
+  }
+  & > img{
+    height: 1em;
+    margin-left: 7.5px;
+  }
+}

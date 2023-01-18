@@ -1,0 +1,38 @@
+.thank-you{
+    &-title{
+        font-size: 28px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .5em;
+        font-weight: 600;
+        text-align: center;
+        svg{
+            height: 1.25em;
+            width: auto;
+            fill: currentColor;
+        }
+        &.success{
+            color: $clr-primary;
+        }
+        @media(max-width: 991px){
+            flex-direction: column;
+        }
+    }
+    &-text{
+        max-width: 568px;
+        text-align: center;
+        margin: 0 auto;
+        display: grid;
+        gap: 25px
+    }
+    &-after-cart{
+        margin-bottom: 50px;
+    }
+    #breadcrumbs{
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-bottom: 25px;
+    }
+}

@@ -1,0 +1,30 @@
+/** COLORS **/
+$white: #fff;
+$black: #000;
+$black-hover: hsl(0, 0%, 35%);
+$body-bg: #fff;
+
+$text-clr-primary: #414143;
+
+$clr-primary: #f9dc06;
+$clr-secondary: #414143;
+
+/** DECORATIONS **/
+
+$transition-regular: 300ms;
+$transition-slow: 600ms;
+$transition-fast: 150ms;
+$transition-bg: background $transition-regular;
+
+/** FONTS **/
+$font-primary: 'Inter', sans-serif;;
+$font-secondary: 'Inria Serif', serif;
+
+/** RESPONSIVE BREAKPOINTS **/
+$breakpoints: (
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+  xl: 1500px,
+);

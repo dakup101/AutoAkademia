@@ -1,0 +1,29 @@
+.rating {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+
+  &__star {
+    padding: 0.6rem;
+    background-color: $clr-primary;
+    margin-right: 0.5rem;
+    &:last-child {
+      margin: 0;
+    }
+
+    .rating__star-icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  &--gold {
+    margin-bottom: 0;
+    margin-top: auto;
+    justify-content: flex-start;
+
+    .rating__star {
+      padding: 0;
+      background-color: transparent;
+    }
+  }
+}
