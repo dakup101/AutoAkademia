@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying product content within loops
  *
@@ -15,16 +16,18 @@
  * @version 3.6.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 global $product;
 
 // Ensure visibility.
-if ( empty( $product ) || ! $product->is_visible() || $product->get_type() != "course" ) {
-	return;
+if (empty($product) || !$product->is_visible()) {
+    return;
 }
+
+if ($product->get_type() == "addon") return;
 ?>
-<div class="course-archive-item col-xl-10 col-12 offset-xl-1">
+<div class="course-archive-item col-12 item-<?php echo $product->get_type(); ?>">
     <div class="course-archive-item-content">
         <div class="course-archive-item-img">
             <?php echo $product->get_image("large") ?>
@@ -35,12 +38,12 @@ if ( empty( $product ) || ! $product->is_visible() || $product->get_type() != "c
                 <div class="col-md-9 col-xl-8 col-12">
                     <h2><?php echo $product->get_name(); ?></h2>
                     <?php
-					$meets = $product->get_attribute("pa_spotkania");
-					$time = $product->get_attribute("pa_czas");
-					$rides = $product->get_attribute("pa_jazdy");
-					// START | if attributes
-					if (!empty($meets) && !empty($time) && !empty($rides)) :
-					?>
+                    $meets = $product->get_attribute("pa_spotkania");
+                    $time = $product->get_attribute("pa_czas");
+                    $rides = $product->get_attribute("pa_jazdy");
+                    // START | if attributes
+                    if (!empty($meets) && !empty($time) && !empty($rides)) :
+                    ?>
                     <div class="course-attrs course-archive-item-attrs">
                         <div class="course-attrs-item meets">
                             <img src="<?php echo THEME_IMG . "student.svg" ?>" alt="">
@@ -56,13 +59,13 @@ if ( empty( $product ) || ! $product->is_visible() || $product->get_type() != "c
                         </div>
                     </div>
                     <?php
-					endif;
-					// END | if attributes
-					?>
+                    endif;
+                    // END | if attributes
+                    ?>
                 </div>
                 <div class="col-md-3 col-xl-4 col-12">
                     <div class="course-archive-item-price course-price">
-                        <?php if (!empty($product->get_sale_price())): ?>
+                        <?php if (!empty($product->get_sale_price())) : ?>
                         <span class="course-price-value old">
                             <?php echo $product->get_regular_price() ?>
                         </span>
@@ -70,7 +73,7 @@ if ( empty( $product ) || ! $product->is_visible() || $product->get_type() != "c
                             <?php echo $product->get_sale_price() ?>
                         </span>
 
-                        <?php else: ?>
+                        <?php else : ?>
                         <span class="course-price-value">
                             <?php echo $product->get_regular_price() ?>
                         </span>
@@ -85,9 +88,14 @@ if ( empty( $product ) || ! $product->is_visible() || $product->get_type() != "c
             <div class="course-archive-item-desc">
                 <?php echo $product->get_short_description(); ?>
             </div>
-            <a href="<?php echo $product->get_permalink(); ?>" class="btn btn--secondary">
-                Czytaj więcej
-            </a>
+            <div class="course-buttons">
+                <a href="<?php echo $product->get_permalink(); ?>" class="btn btn--primary">
+                    Zapisz się na kurs
+                </a>
+                <a href="/zadaj-pytanie" class="btn btn--secondary">
+                    Zadaj pytanie
+                </a>
+            </div>
         </div>
     </div>
 </div>

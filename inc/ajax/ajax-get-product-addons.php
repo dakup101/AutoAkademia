@@ -1,16 +1,18 @@
 <?php
 add_action('init', 'get_product_addons');
 
-function get_product_addons(){
-    add_action( 'wp_ajax_nopriv_get_product_addons', 'get_product_addons_handle' );
-    add_action( 'wp_ajax_get_product_addons', 'get_product_addons_handle' );
+function get_product_addons()
+{
+    add_action('wp_ajax_nopriv_get_product_addons', 'get_product_addons_handle');
+    add_action('wp_ajax_get_product_addons', 'get_product_addons_handle');
 }
 
-function get_product_addons_handle(){
+function get_product_addons_handle()
+{
     global $woocommerce;
     $product_id = $_POST['product_id'];
     $addons = get_field("course_addons", $product_id);
-    if (!empty($addons)){
+    if (!empty($addons)) {
         echo get_product_addons_response($addons);
         wp_die();
     }
@@ -19,11 +21,12 @@ function get_product_addons_handle(){
 }
 
 
-function get_product_addons_response($addons){
-ob_start();
-// FUNCTION MARKUP START
+function get_product_addons_response($addons)
+{
+    ob_start();
+    // FUNCTION MARKUP START
 ?>
-<div class="course-addons-info">
+<!-- <div class="course-addons-info">
     <div class="heading-primary">
         <h2><em><strong>94% uczniów</strong></em><br>
             <strong>zdaje egzamin</strong><br>
@@ -35,10 +38,11 @@ ob_start();
         expedita tempora illum. Et nam esse dignissimos.
     </p>
     <div>
-        <img src="<?php echo THEME_IMG . "terminy_popup.png" ?>" alt="">
+        <img src="<?php // echo THEME_IMG . "terminy_popup.png" 
+                    ?>" alt="">
 
     </div>
-</div>
+</div> -->
 <div class="course-addons-picker">
     <div class="heading-primary">
         <h2>
@@ -47,7 +51,7 @@ ob_start();
     </div>
     <div class="course-addons-items">
         <div class="course-addons-items-fix">
-            <?php foreach($addons as $el) : $product = wc_get_product($el['addon'])?>
+            <?php foreach ($addons as $el) : $product = wc_get_product($el['addon']) ?>
             <label class="course-addons-item" for="<?php echo "addon" . $product->get_id() ?>">
                 <label class="custom-chkbox" for="<?php echo "addon" . $product->get_id() ?>"
                     class="course-addons-item-chkbox">
@@ -57,7 +61,7 @@ ob_start();
                 </label>
                 <div class="course-addons-item-content">
                     <h2 class="course-addons-item-title"><?php echo $product->get_name(); ?></h2>
-                    <?php if (!empty($product->get_short_description())): ?>
+                    <?php if (!empty($product->get_short_description())) : ?>
                     <p class="course-addons-item-info"><?php echo $product->get_short_description() ?></p>
                     <?php endif; ?>
                     <p class="course-addons-item-action">
@@ -88,18 +92,19 @@ ob_start();
     </div>
 </div>
 <?php
-// FUNCTION MARKUP END
-return ob_get_clean();
+    // FUNCTION MARKUP END
+    return ob_get_clean();
 }
 
-function get_product_addons_response_fail(){
+function get_product_addons_response_fail()
+{
     ob_start();
     // FUNCTION MARKUP START
-    ?>
+?>
 <div class="course-addons">
     <p>Brak Dodatków dla tego kursu</p>
 </div>
 <?php
-// FUNCTION MARKUP END
-return ob_get_clean();
+    // FUNCTION MARKUP END
+    return ob_get_clean();
 }
